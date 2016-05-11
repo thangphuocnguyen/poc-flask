@@ -15,6 +15,11 @@ class Question(models.Model):
         """Question text."""
         return self.question_text
 
+    def was_published_recently(self):
+        """Published recently."""
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
 
 class Choice(models.Model):
     """Define attribute for Choice."""
@@ -26,7 +31,3 @@ class Choice(models.Model):
     def __str__(self):
         """Choice_text."""
         return self.choice_text
-
-    def was_published_recently(self):
-        """Published recently."""
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
