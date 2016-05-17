@@ -42,6 +42,9 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
+
+        """Returns the canonical URL of the object."""
+
         return reverse(
             'blog:post_detail',
             args=[
