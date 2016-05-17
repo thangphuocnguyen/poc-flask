@@ -1,0 +1,4 @@
+
+       [console_scripts]
+       wq=wq.core:wq
+    
