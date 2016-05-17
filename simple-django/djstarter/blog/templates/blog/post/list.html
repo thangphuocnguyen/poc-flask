@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  <h1>My Blog</h1>
+  <h1>Blog list</h1>
 
   {% for post in posts %}
     <h2>
@@ -18,6 +18,6 @@
     {{ post.body|truncatewords:30|linebreaks }}
   {% endfor %}
 
-  {% include "pagination.html" with page=posts %}
+  {% include "pagination.html" with page=page_obj %}
 
 {% endblock %}
