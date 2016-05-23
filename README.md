@@ -152,6 +152,7 @@ Email: thang.nguyenphuoc@asnet.co.vn
 
 // Since we are going to deal with datetimes, we will install the pytz module. This module provides timezone de nitions for Python and is required by SQLite to work with datetimes.
 > pip install pytz
+> pip install django-taggit==0.17.1
 
 
 // Refs
