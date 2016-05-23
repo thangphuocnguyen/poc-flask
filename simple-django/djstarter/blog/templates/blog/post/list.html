@@ -6,17 +6,26 @@
 
   <h1>Blog list</h1>
 
-  {% for post in posts %}
-    <h2>
-      <a href="{{ post.get_absolute_url }}">
-        {{ post.title }}
-      </a>
-    </h2>
-    <p class="date">
-      Published {{ post.publish }} by {{ post.author }}
-    </p>
-    {{ post.body|truncatewords:30|linebreaks }}
-  {% endfor %}
+  <ul class="post-list">
+    {% for post in posts %}
+
+      <li class="post-item">
+        <h2>
+          <a href="{{ post.get_absolute_url }}">
+            {{ post.title }}
+          </a>
+        </h2>
+
+        <p class="tags">Tags: {{ post.tags.all|join:", " }}</p>
+
+        <p class="date">
+          Published {{ post.publish }} by {{ post.author }}
+        </p>
+        {{ post.body|truncatewords:30|linebreaks }}
+      </li>
+
+    {% endfor %}
+  </ul>
 
   {% include "pagination.html" with page=page_obj %}
 
