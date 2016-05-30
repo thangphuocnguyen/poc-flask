@@ -18,16 +18,16 @@ from django.contrib import admin
 
 from tastypie.api import Api
 
-from notes.api import NoteResource
+from apps.notes.api import NoteResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(NoteResource())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^polls/', include('polls.urls')),
+    # url(r'^polls/', include('apps.polls.urls')),
     url(r'^blog/', include(
-        'blog.urls',
+        'apps.blog.urls',
         namespace='blog',
         app_name='blog'
     )),
