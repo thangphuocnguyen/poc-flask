@@ -44,6 +44,7 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
+    'apps.accounts',
     'apps.polls',
     'apps.blog',
     'apps.notes',
@@ -83,6 +84,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+
+# /////////////// USER MODEL CONFIGURATION
+AUTH_USER_MODEL = 'accounts.User'
+# /////////////// END USER MODEL CONFIGURATION
+
 
 DATABASES = {
     'default': {

@@ -1,7 +1,9 @@
 from tastypie.utils.timezone import now
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
+
+from apps.accounts.models import User
 
 
 class Note(models.Model):
