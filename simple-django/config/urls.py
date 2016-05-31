@@ -19,9 +19,11 @@ from django.contrib import admin
 from tastypie.api import Api
 
 from apps.notes.api import NoteResource
+from apps.blog.api import PostResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(NoteResource())
+v1_api.register(PostResource())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

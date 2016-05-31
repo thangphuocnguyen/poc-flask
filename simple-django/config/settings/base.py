@@ -28,22 +28,30 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
-
-INSTALLED_APPS = [
+# ////////// APP CONFIGURATION
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+)
 
+THIRD_PARTY_APPS = (
     'tastypie',
+    'taggit',
+)
+
+PROJECT_APPS = (
     'apps.polls',
     'apps.blog',
-    'taggit',
     'apps.notes',
-]
+)
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
+# ////////// END APP CONFIGURATION
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
