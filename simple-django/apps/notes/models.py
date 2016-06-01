@@ -7,6 +7,8 @@ from apps.accounts.models import User
 
 
 class Note(models.Model):
+    """Model for a Note."""
+
     user = models.ForeignKey(User)
     pub_date = models.DateTimeField(default=now)
     title = models.CharField(max_length=200)
