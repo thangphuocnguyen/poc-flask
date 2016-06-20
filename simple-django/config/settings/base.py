@@ -48,6 +48,7 @@ PROJECT_APPS = (
     'apps.polls',
     'apps.blog',
     'apps.notes',
+    'apps.issue',
 )
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -150,3 +151,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# ////////// CONFIGURATION TASTYPIE API
+TASTYPIE_DEFAULT_FORMATS = ['json']
+API_LIMIT_PER_PAGE = 15
+# ////////// END CONFIGURATION TASTYPIE API

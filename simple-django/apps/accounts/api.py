@@ -1,4 +1,4 @@
-from tastypie.resources import ModelResource
+from tastypie.resources import ModelResource, ALL
 from tastypie.authorization import Authorization
 from tastypie.authentication import Authentication
 
@@ -29,6 +29,10 @@ class UserResource(ModelResource):
         always_return_data = True
         excludes = ['is_staff', 'date_joined', 'is_superuser',
                     'last_login', 'password']
+
+        filtering = {
+            'username': ALL,
+        }
 
         custom_filtering = {
             'offset': {

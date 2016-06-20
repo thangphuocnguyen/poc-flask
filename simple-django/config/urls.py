@@ -20,10 +20,12 @@ from tastypie.api import Api
 
 from apps.accounts.api import UserResource
 from apps.notes.api import NoteResource
+from apps.issue.api import IssueResource
 from apps.blog.api import PostResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(UserResource())
+v1_api.register(IssueResource())
 v1_api.register(NoteResource())
 v1_api.register(PostResource())
 
