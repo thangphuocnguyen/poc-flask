@@ -19,12 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')6ohywwb&^u@1#ed-2fcc#452$$ubj93w$e+2gd29+6puccj1y'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -125,12 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
         '.NumericPasswordValidator',
     },
 ]
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'thangphuocnguyen.game@gmail.com'
-EMAIL_HOST_PASSWORD = 'Halam123abc'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 
 # Internationalization
