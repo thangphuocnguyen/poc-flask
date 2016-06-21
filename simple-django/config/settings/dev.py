@@ -14,3 +14,14 @@ EMAIL_USE_TLS = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')6ohywwb&^u@1#ed-2fcc#452$$ubj93w$e+2gd29+6puccj1y'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
