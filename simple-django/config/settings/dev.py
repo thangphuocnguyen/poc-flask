@@ -15,13 +15,35 @@ EMAIL_USE_TLS = True
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')6ohywwb&^u@1#ed-2fcc#452$$ubj93w$e+2gd29+6puccj1y'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'myproject',
+#         'USER': 'myprojectuser',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
+        'NAME': 'tysnblog',
+        'USER': 'admin',
+        'PASSWORD': 'admin123',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
+
+# INSTALLED_APPS += ("debug_toolbar",)
+
+# TASTYPIE SETTINGS --------------------------------
+
+# If set to True and settings.DEBUG = True,
+# the standard Django technical 500 is displayed.
+TASTYPIE_FULL_DEBUG = True
+
+# Allows your URLs to be missing the final slash
+TASTYPIE_ALLOW_MISSING_SLASH = True

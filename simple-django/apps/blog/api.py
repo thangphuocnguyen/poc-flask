@@ -19,6 +19,7 @@ class PostResource(ModelResource):
         resource_name = 'posts'
         authorization = Authorization()
         authentication = Authentication()
+        always_return_data = True
 
     def hydrate(self, bundle, request=None):
 
