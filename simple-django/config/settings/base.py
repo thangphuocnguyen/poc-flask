@@ -43,6 +43,7 @@ PROJECT_APPS = (
     'apps.blog',
     'apps.notes',
     'apps.issue',
+    'apps.contacts'
 )
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

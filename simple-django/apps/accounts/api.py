@@ -18,14 +18,18 @@ class UserResource(ModelResource):
     """
 
     class Meta:
+
         queryset = User.objects.all()
         resource_name = 'users'
         list_allowed_methods = ['get']
         allowed_methods = ['get', 'post', 'put']
+
         authentication = Authentication()
         authorization = Authorization()
+
         include_resource_uri = False
         include_absolute_url = True
+
         always_return_data = True
         excludes = ['is_staff', 'date_joined', 'is_superuser',
                     'last_login', 'password']

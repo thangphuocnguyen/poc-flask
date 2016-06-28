@@ -20,13 +20,12 @@ class Post(models.Model):
         ('draft', 'Draft'),
         ('published', 'Published'),
     )
+
+    user = models.ForeignKey(User, related_name='blog_posts')
+
     title = models.CharField(max_length=250)
-    slug = models.SlugField(
-        max_length=250,
-        unique_for_date='publish'
-    )
-    author = models.ForeignKey(User, related_name='blog_posts')
     body = models.TextField()
+
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -36,6 +35,11 @@ class Post(models.Model):
         default='draft'
     )
     tags = TaggableManager()
+
+    slug = models.SlugField(
+        max_length=250,
+        unique_for_date='publish'
+    )
 
     objects = models.Manager()  # The default manager.
     published = PublishedManager()  # Our custom manager.

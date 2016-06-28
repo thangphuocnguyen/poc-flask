@@ -10,7 +10,11 @@ from apps.accounts.api import UserResource
 
 class IssueResource(ModelResource):
 
-    user = fields.ForeignKey(UserResource, 'user', full=True, null=True, readonly=True)
+    user = fields.ForeignKey(UserResource,
+                             'user',
+                             full=True,
+                             null=True,
+                             readonly=True)
 
     class Meta:
         queryset = Issue.objects.all()
@@ -19,12 +23,6 @@ class IssueResource(ModelResource):
         authentication = Authentication()
 
     def hydrate(self, bundle, request=None):
-        print(self)
-        print('-----')
-        print(bundle)
-
-        import pdb
-        pdb.set_trace()
 
         bundle.obj.user = bundle.request.user
         return bundle
