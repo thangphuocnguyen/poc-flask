@@ -1,6 +1,6 @@
-from tastypie.resources import ModelResource, ALL
+from tastypie.authentication import ApiKeyAuthentication
 from tastypie.authorization import Authorization
-from tastypie.authentication import Authentication
+from tastypie.resources import ModelResource, ALL
 
 from .models import User
 
@@ -24,7 +24,7 @@ class UserResource(ModelResource):
         list_allowed_methods = ['get']
         allowed_methods = ['get', 'post', 'put']
 
-        authentication = Authentication()
+        authentication = ApiKeyAuthentication()
         authorization = Authorization()
 
         include_resource_uri = False
