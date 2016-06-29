@@ -24,7 +24,3 @@ class PostResource(ModelResource):
     def hydrate(self, bundle, request=None):
         bundle.obj.user = bundle.request.user
         return bundle
-
-    # def obj_create(self, bundle, **kwargs):
-    #     bundle.data['user'] = {'pk': bundle.request.user.pk}
-    #     return super(PostResource, self).obj_create(bundle, **kwargs)

@@ -7,18 +7,17 @@ class PostAdmin(admin.ModelAdmin):
     list_display = (
         'title',
         'slug',
-        'user',
         'publish',
         'status',
-        'get_absolute_url'
+        'user'
     )
 
     list_filter = ('status', 'created', 'publish', 'user')
     search_fields = ('title', 'body')
-    prepopulated_fields = {'slug': ('title',)}
-    # raw_id_fields = ('user',)
+    # prepopulated_fields = {'slug': ('title',)}
+    # # raw_id_fields = ('user',)
     date_hierarchy = 'publish'
-    ordering = ['status', 'publish']
+    ordering = ['status', '-publish', 'user']
 
 
 class CommentAdmin(admin.ModelAdmin):

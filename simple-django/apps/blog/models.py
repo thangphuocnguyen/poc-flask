@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
+
 # from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
@@ -61,6 +63,14 @@ class Post(models.Model):
                 self.slug
             ]
         )
+
+    def save(self, *args, **kwargs):
+
+        # For automatic slug generation.
+        if not self.slug:
+            self.slug = slugify(self.title)[:250]
+
+        return super(Post, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):
