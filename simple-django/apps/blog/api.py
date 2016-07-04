@@ -21,6 +21,23 @@ class PostResource(ModelResource):
         authentication = ApiKeyAuthentication()
         always_return_data = True
 
+
+    def hydrate(self, bundle, request=None):
+        bundle.obj.user = bundle.request.user
+        return bundle
+
+
+class PostsByUserResource(ModelResource):
+    """Allow GET posts that user owned."""
+
+    class Meta:
+        queryset = Post.objects.all()
+        resource_name = 'posts'
+        authorization = Authorization()
+        authentication = ApiKeyAuthentication()
+        always_return_data = True
+
+
     def hydrate(self, bundle, request=None):
         bundle.obj.user = bundle.request.user
         return bundle
