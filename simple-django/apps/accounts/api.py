@@ -2,6 +2,8 @@ from tastypie.authentication import ApiKeyAuthentication
 from tastypie.authorization import Authorization
 from tastypie.resources import ModelResource, ALL
 
+from django.conf.urls import url
+
 from .models import User
 
 
@@ -59,5 +61,7 @@ class UserResource(ModelResource):
 
     def prepend_urls(self):
         return [
-
+            url(r'^/(?P<username>[\w\d_.-]+)/$' %
+                self.wrap_view('dispatch_detail'),
+                name='api_dispatch_detail'),
         ]
