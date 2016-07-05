@@ -23,5 +23,10 @@ class CommentResource(ModelResource):
         always_return_data = True
 
     def hydrate(self, bundle, request=None):
+
+        print("here")
+        import pdb
+        pdb.set_trace()
+
         bundle.obj.user = bundle.request.user
         return bundle
