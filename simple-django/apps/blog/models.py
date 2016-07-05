@@ -76,9 +76,11 @@ class Post(models.Model):
 class Comment(models.Model):
     """Comment for post."""
 
+    # user = models.ForeignKey(User,)
     post = models.ForeignKey(Post, related_name='comments')
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+
+    # name = models.CharField(max_length=80)
+    # email = models.EmailField()
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -88,4 +90,4 @@ class Comment(models.Model):
         ordering = ('created',)
 
     def __str__(self):
-        return 'Comment by {} on {}'.format(self.name, self.post)
+        return 'Comment by {} on {}'.format("users", self.post)
