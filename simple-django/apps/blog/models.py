@@ -76,11 +76,9 @@ class Post(models.Model):
 class Comment(models.Model):
     """Comment for post."""
 
-    # user = models.ForeignKey(User,)
-    post = models.ForeignKey(Post, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
+    post = models.ForeignKey(Post, related_name='comment')
 
-    # name = models.CharField(max_length=80)
-    # email = models.EmailField()
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
