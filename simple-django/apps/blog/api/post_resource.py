@@ -23,7 +23,8 @@ class PostResource(ModelResource):
                              null=True,
                              readonly=True)
 
-    comments = fields.ToManyField(CommentResource,
+    comments = fields.ToManyField("apps.blog.api.comment_resource.CommentRes \
+                                  ource",
                                   'comments',
                                   full=True,
                                   null=True)

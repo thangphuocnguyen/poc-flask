@@ -7,8 +7,7 @@ from tastypie.authentication import ApiKeyAuthentication
 from apps.accounts.api import UserResource
 
 from apps.blog.models import Comment
-from .post_resource import PostResource
-
+# from .post_resource import PostResource
 
 class CommentResource(ModelResource):
     user = fields.ForeignKey(UserResource,
@@ -17,7 +16,7 @@ class CommentResource(ModelResource):
                              null=True,
                              readonly=True)
 
-    post = fields.ForeignKey(PostResource,
+    post = fields.ForeignKey("apps.blog.api.post_resource.PostResource",
                              'post',
                              full=True,
                              null=True,
