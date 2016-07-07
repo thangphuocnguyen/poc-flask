@@ -21,7 +21,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('post', 'created', 'active')
+    list_display = ('post_id', 'post', 'created', 'active')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('body',)
 
