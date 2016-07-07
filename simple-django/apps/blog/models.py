@@ -77,7 +77,10 @@ class Comment(models.Model):
     """Comment for post."""
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
-    post = models.ForeignKey(Post, related_name='comment')
+    post = models.ForeignKey(Post,
+                             related_name='post',
+                             null=True,
+                             blank=True)
 
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
