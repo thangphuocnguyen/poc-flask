@@ -3,7 +3,7 @@ from tastypie import fields
 from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
 from tastypie.authentication import ApiKeyAuthentication
-
+from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from apps.accounts.api import UserResource
 
 from apps.blog.models import Comment
@@ -18,9 +18,8 @@ class CommentResource(ModelResource):
 
     post = fields.ForeignKey("apps.blog.api.post_resource.PostResource",
                              'post',
-                             full=True,
-                             null=True,
-                             readonly=True)
+                             null=True)
+    post_id = fields.CharField(attribute='post_id', readonly=True, default="111")
 
     class Meta:
         queryset = Comment.objects.all()
@@ -28,12 +27,16 @@ class CommentResource(ModelResource):
         authorization = Authorization()
         authentication = ApiKeyAuthentication()
         always_return_data = True
+        filtering = {
+            "post": ALL,
+            "post_id": ALL
+        }
 
     def hydrate(self, bundle, request=None):
 
-        print("here")
-        import pdb
-        pdb.set_trace()
+        # print("here")
+        # import pdb
+        # pdb.set_trace()
 
         bundle.obj.user = bundle.request.user
         return bundle

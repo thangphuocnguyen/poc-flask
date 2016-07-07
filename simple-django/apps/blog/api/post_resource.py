@@ -23,8 +23,8 @@ class PostResource(ModelResource):
                              null=True,
                              readonly=True)
 
-    comments = fields.ToManyField("apps.blog.api.comment_resource.CommentRes \
-                                  ource",
+    comments = fields.ToManyField("apps.blog.api.comment_resource.Comment\
+                                  Resource",
                                   'comments',
                                   full=True,
                                   null=True)
@@ -37,20 +37,18 @@ class PostResource(ModelResource):
         always_return_data = True
 
     def hydrate(self, bundle, request=None):
-
-        print('here')
         bundle.obj.user = bundle.request.user
         return bundle
 
     def prepend_urls(self):
         return [
-            url(r"^(?P<resource_name>%s)/(?P<pk>\w[\w/-]*)/children%s$" %
-                (self._meta.resource_name, trailing_slash()),
-                self.wrap_view('get_children'),
-                name="api_get_children"),
+            url(r'^(?P<resource_name>{0})/(?P<pk>\w[\w/-]*)/comments{1}$'
+                .format(self._meta.resource_name, trailing_slash()),
+                self.wrap_view('get_comments'),
+                name="api_get_comments"),
         ]
 
-    def get_children(self, request, **kwargs):
+    def get_comments(self, request, **kwargs):
         try:
             bundle = self.build_bundle(data={'pk': kwargs['pk']},
                                        request=request)
@@ -64,4 +62,5 @@ class PostResource(ModelResource):
                 found at this URI.")
 
         child_resource = CommentResource()
-        return child_resource.get_list(request, parent_id=obj.pk)
+        print(obj.pk)
+        return child_resource.get_list(request, post=obj.pk)
