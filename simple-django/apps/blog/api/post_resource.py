@@ -26,7 +26,7 @@ class PostResource(ModelResource):
     comments = fields.ToManyField("apps.blog.api.comment_resource.Comment\
                                   Resource",
                                   'comments',
-                                  full=True,
+                                  # full=True,
                                   null=True)
 
     class Meta:
@@ -63,4 +63,4 @@ class PostResource(ModelResource):
 
         child_resource = CommentResource()
         print(obj.pk)
-        return child_resource.get_list(request, post=obj.pk)
+        return child_resource.get_list(request, post_id=obj.pk)
