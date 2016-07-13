@@ -2,7 +2,7 @@
 
 NAME="simple-django"     	                        # Name of the application
 DJANGODIR=tras.simpledjango             	  	# Django project directory
-SOCKFILE=/tras.simpledjango/run/gunicorn.sock  	  	# we will communicte using this unix socket
+SOCKFILE=run/gunicorn.sock  	  	# we will communicte using this unix socket
 USER=vagrant                                      	# the user to run as
 GROUP=webapps                                     	# the group to run as
 NUM_WORKERS=3                                     	# how many worker processes should Gunicorn spawn
