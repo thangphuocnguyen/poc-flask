@@ -11,10 +11,21 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from os.path import normpath, dirname, abspath, join
 
+# PATH CONFIGURATION
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Absolute filesystem path to the config directory:
+CONFIG_ROOT = dirname(dirname(abspath(__file__)))
+print('CONFIG_ROOT: ' + CONFIG_ROOT)
+
+# Absolute filesystem path to the config directory:
+BASE_DIR = CONFIG_ROOT
+print('BASE_DIR: ' + BASE_DIR)
+
+PROJECT_ROOT = dirname(CONFIG_ROOT)
+print('PROJECT_ROOT: ' + PROJECT_ROOT)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -128,8 +139,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "sfiles"), )
+STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, "sfiles"), )
 
 # ////////// CONFIGURATION TASTYPIE API
 TASTYPIE_DEFAULT_FORMATS = ['json']
