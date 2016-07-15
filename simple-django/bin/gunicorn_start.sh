@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAME="simple-django"     	                        # Name of the application
-DJANGODIR=tras.simpledjango             	  	# Django project directory
+DJANGODIR=simpledjangoprj             	  	# Django project directory
 SOCKFILE=run/gunicorn.sock  	  	# we will communicte using this unix socket
 USER=vagrant                                      	# the user to run as
 GROUP=webapps                                     	# the group to run as
@@ -14,7 +14,7 @@ echo "Starting $NAME as `whoami`"
 # Activate the virtual environment
 echo "PWD:" $PWD
 echo "DJANGODIR:" $DJANGODIR
-cd $DJANGODIR
+# cd $DJANGODIR
 echo "PWD:" $PWD
 
 # source .bashrc
