@@ -1,0 +1,28 @@
+version: '2'
+services:
+
+  webapp:
+    restart: always
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    command: /usr/src/app/scripts/dj-run.sh
+    env_file: ./webapp/env/local.env
+    links:
+      - postgres:postgres
+    volumes:
+      - /usr/src/app
+      - /usr/src/app/static
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    env_file: ./postgres/env/local.env
+    volumes_from:
+      - data
+    ports:
+      - "5432:5432"

@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static "images/favicon.ico" %}"/>
+  </head>
+
+  <body>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <div id="sidebar">
+      <h2>Thang Phuoc Nguyen</h2>
+        <p>Django Training - Blog App</p>
+    </div>
+  </body>
+</html>
