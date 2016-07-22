@@ -1,0 +1,4 @@
+# Local development dependencies
+
+# Import base requirements
+-r base.txt
