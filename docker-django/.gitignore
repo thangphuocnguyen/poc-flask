@@ -10,3 +10,6 @@ web/static/*
 
 ### Variables env
 *.env
+
+### Others
+.DS_Store
