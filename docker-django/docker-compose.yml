@@ -14,15 +14,12 @@ services:
     env_file: ./webapp/env/local.env
     links:
       - postgres:postgres
-    volumes:
-      - /usr/src/app
-      - /usr/src/app/static
 
   postgres:
     restart: always
     image: postgres:latest
     env_file: ./postgres/env/local.env
-    volumes_from:
-      - data
+    volumes:
+      - /var/app/data:/var/lib/postgresql
     ports:
       - "5432:5432"
