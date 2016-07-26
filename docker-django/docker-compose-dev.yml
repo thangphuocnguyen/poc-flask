@@ -30,14 +30,6 @@ services:
     links:
       - postgres
 
-  nginx:
-    build: ./compose/nginx
-    depends_on:
-      - webapp
-
-    ports:
-      - "0.0.0.0:80:80"
-
 
 
 

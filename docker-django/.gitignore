@@ -6,10 +6,11 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
-web/static/*
 
 ### Variables env
 *.env
 
-### Others
+### OSX ###
 .DS_Store
+.AppleDouble
+.LSOverride
