@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 from taggit.managers import TaggableManager
 
-from apps.accounts.models import User
+from djangoprj.apps.accounts.models import User
 
 
 class PublishedManager(models.Manager):
