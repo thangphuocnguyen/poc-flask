@@ -1,0 +1,16 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+### Variables env
+*.env
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
