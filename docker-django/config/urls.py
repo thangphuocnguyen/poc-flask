@@ -18,24 +18,24 @@ from django.contrib import admin
 
 from tastypie.api import Api
 
-from apps.accounts.api import UserResource
-from apps.notes.api import NoteResource
-from apps.issue.api import IssueResource
-from apps.blog.api.post_resource import PostResource
-from apps.blog.api.comment_resource import CommentResource
+from djangoprj.apps.accounts.api import UserResource
+# from djangoprj.apps.notes.api import NoteResource
+# from djangoprj.apps.issue.api import IssueResource
+from djangoprj.apps.blog.api.post_resource import PostResource
+from djangoprj.apps.blog.api.comment_resource import CommentResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(UserResource())
-v1_api.register(IssueResource())
-v1_api.register(NoteResource())
+# v1_api.register(IssueResource())
+# v1_api.register(NoteResource())
 v1_api.register(PostResource())
 v1_api.register(CommentResource())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^polls/', include('apps.polls.urls')),
+    # url(r'^polls/', include('djangoprj.apps.polls.urls')),
     url(r'^blog/', include(
-        'apps.blog.urls',
+        'djangoprj.apps.blog.urls',
         namespace='blog',
         app_name='blog'
     )),

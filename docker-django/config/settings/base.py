@@ -1,3 +1,4 @@
+
 """
 Django settings for config project.
 
@@ -14,14 +15,16 @@ from __future__ import absolute_import, unicode_literals
 
 import environ
 
-env = environ.Env()
-
+# PATH CONFIGURATION
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Three folder back (/a/b/c/ - 3 = /)
 # (djangoprj/config/settings/base.py - 3 = djangoprj/)
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('djangoprj')
 
-# PATH CONFIGURATION
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# reading .env file
+env = environ.Env()
+environ.Env.read_env(str(ROOT_DIR) + '/.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -45,12 +48,12 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
-    'apps.accounts',
-    'apps.polls',
-    'apps.blog',
-    'apps.notes',
-    'apps.issue',
-    'apps.contacts'
+    'djangoprj.apps.accounts',
+    # 'djangoprj.apps.polls',
+    'djangoprj.apps.blog',
+    # 'djangoprj.apps.notes',
+    # 'djangoprj.apps.issue',
+    # 'djangoprj.apps.contacts'
 )
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -91,6 +94,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+DATABASES = {
+    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+    'default': env.db('DATABASE_URL', default='postgres:///djangoprj'),
+}
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 
 # /////////////// USER MODEL CONFIGURATION
