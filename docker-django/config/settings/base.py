@@ -94,7 +94,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-AUTH_USER_MODEL = 'apps.accounts.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -108,11 +108,11 @@ AUTH_USER_MODEL = 'apps.accounts.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('POSTGRES_USER'),
-        'USER': env('POSTGRES_USER'),
-        'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': env('POSTGRES_HOST'),
-        'PORT': '5432',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
