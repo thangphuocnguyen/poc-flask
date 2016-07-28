@@ -1,3 +1,4 @@
+
 """
 Django settings for config project.
 
@@ -14,14 +15,16 @@ from __future__ import absolute_import, unicode_literals
 
 import environ
 
-env = environ.Env()
-
+# PATH CONFIGURATION
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Three folder back (/a/b/c/ - 3 = /)
 # (djangoprj/config/settings/base.py - 3 = djangoprj/)
 ROOT_DIR = environ.Path(__file__) - 3
 APPS_DIR = ROOT_DIR.path('djangoprj')
 
-# PATH CONFIGURATION
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# reading .env file
+env = environ.Env()
+environ.Env.read_env(str(ROOT_DIR) + '/.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -45,12 +48,12 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
-    'apps.accounts',
-    'apps.polls',
-    'apps.blog',
-    'apps.notes',
-    'apps.issue',
-    'apps.contacts'
+    'djangoprj.apps.accounts',
+    # 'djangoprj.apps.polls',
+    'djangoprj.apps.blog'
+    # 'djangoprj.apps.notes',
+    # 'djangoprj.apps.issue',
+    # 'djangoprj.apps.contacts'
 )
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -91,34 +94,50 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-
-# /////////////// USER MODEL CONFIGURATION
 AUTH_USER_MODEL = 'accounts.User'
-# /////////////// END USER MODEL CONFIGURATION
+
+# DATABASE CONFIGURATION
+# ------------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# DATABASES = {
+#     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+#     'default': env.db('DATABASE_URL', default='postgres:///djangoprj'),
+# }
+# DATABASES['default']['ATOMIC_REQUESTS'] = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
+    }
+}
 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.NumericPasswordValidator',
+#     },
+# ]
 
 
 # GENERAL CONFIGURATION

@@ -10,9 +10,9 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 # from django.http import HttpGone, HttpMultipleChoices
 
 
-from apps.accounts.api import UserResource
+from djangoprj.apps.accounts.api import UserResource
 
-from apps.blog.models import Post
+from djangoprj.apps.blog.models import Post
 from .comment_resource import CommentResource
 
 
@@ -23,7 +23,7 @@ class PostResource(ModelResource):
                              null=True,
                              readonly=True)
 
-    comments = fields.ToManyField("apps.blog.api.comment_resource.Comment\
+    comments = fields.ToManyField("djangoprj.apps.blog.api.comment_resource.Comment\
                                   Resource",
                                   'comments',
                                   # full=True,

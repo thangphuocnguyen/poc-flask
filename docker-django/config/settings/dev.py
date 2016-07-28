@@ -1,6 +1,5 @@
 """Development settings and globals."""
 
-from __future__ import absolute_import
 from .base import * # noqa
 
 DEBUG = True
@@ -18,17 +17,6 @@ EMAIL_USE_TLS = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
 SECRET_KEY = env('DJANGO_SECRET_KEY')
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tysnblog',
-        'USER': 'admin',
-        'PASSWORD': 'admin123',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 # INSTALLED_APPS += ("debug_toolbar",)
 

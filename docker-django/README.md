@@ -41,5 +41,11 @@
 	$ docker-compose -f docker-compose-dev.yml build
 	
 	$ docker-compose -f docker-compose-dev.yml up
+	
+	$ docker-compose -f docker-compose-dev.yml run webapp python manage.py makemigrations
+
+	$ docker-compose -f docker-compose-dev.yml run webapp python manage.py migrate
+
+	$ docker-compose -f docker-compose-dev.yml run webapp python manage.py createsuperuser
 
 	```

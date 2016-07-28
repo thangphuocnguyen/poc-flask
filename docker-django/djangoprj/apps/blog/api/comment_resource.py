@@ -4,9 +4,9 @@ from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
 from tastypie.authentication import ApiKeyAuthentication
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
-from apps.accounts.api import UserResource
+from djangoprj.apps.accounts.api import UserResource
 
-from apps.blog.models import Comment
+from djangoprj.apps.blog.models import Comment
 # from .post_resource import PostResource
 
 class CommentResource(ModelResource):
@@ -16,7 +16,7 @@ class CommentResource(ModelResource):
                              null=True,
                              readonly=True)
 
-    post = fields.ForeignKey("apps.blog.api.post_resource.PostResource",
+    post = fields.ForeignKey("djangoprj.apps.blog.api.post_resource.PostResource",
                              'post',
                              null=True)
     post_id = fields.CharField(attribute='post_id', readonly=True, default="111")
