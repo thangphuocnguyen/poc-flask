@@ -16,19 +16,7 @@ EMAIL_USE_TLS = True
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='hello')
-print('SECRET_KEY: ' + SECRET_KEY)
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'tysnblog',
-#         'USER': 'admin',
-#         'PASSWORD': 'admin123',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 # INSTALLED_APPS += ("debug_toolbar",)
 

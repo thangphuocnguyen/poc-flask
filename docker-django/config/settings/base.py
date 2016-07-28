@@ -50,7 +50,7 @@ THIRD_PARTY_APPS = (
 PROJECT_APPS = (
     'djangoprj.apps.accounts',
     # 'djangoprj.apps.polls',
-    'djangoprj.apps.blog',
+    'djangoprj.apps.blog'
     # 'djangoprj.apps.notes',
     # 'djangoprj.apps.issue',
     # 'djangoprj.apps.contacts'
@@ -94,40 +94,50 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+AUTH_USER_MODEL = 'apps.accounts.User'
+
+# DATABASE CONFIGURATION
+# ------------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# DATABASES = {
+#     # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
+#     'default': env.db('DATABASE_URL', default='postgres:///djangoprj'),
+# }
+# DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-    'default': env.db('DATABASE_URL', default='postgres:///djangoprj'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('POSTGRES_USER'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': '5432',
+    }
 }
-DATABASES['default']['ATOMIC_REQUESTS'] = True
-
-
-# /////////////// USER MODEL CONFIGURATION
-AUTH_USER_MODEL = 'accounts.User'
-# /////////////// END USER MODEL CONFIGURATION
 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation'
-        '.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation'
+#         '.NumericPasswordValidator',
+#     },
+# ]
 
 
 # GENERAL CONFIGURATION
