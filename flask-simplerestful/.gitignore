@@ -1,0 +1,10 @@
+.vscode
+.DS_Store
+
+# Python
+*.py[cod]
+
+# Configuration
+.env
+
+.git
