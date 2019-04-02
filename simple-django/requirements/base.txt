@@ -1,9 +1,0 @@
-Django==1.9.6
-django-taggit==0.18.3
-django-tastypie==0.13.3
-psycopg2==2.6.1
-python-dateutil==2.5.3
-python-mimeparse==1.5.2
-requests==2.9.1
-six==1.10.0
-gunicorn==19.6.0

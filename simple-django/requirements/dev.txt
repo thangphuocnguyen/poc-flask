@@ -1,4 +1,0 @@
-# Importing from base.txt
--r base.txt
-
-bpython==0.15

@@ -1,6 +1,0 @@
-# Local development dependencies
-
-# Import base requirements
--r base.txt
-
-bpython==0.15
